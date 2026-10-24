@@ -2,7 +2,7 @@ import pandas as pd
 
 
 TARGET = 'Churn'
-file='data/Telco-Customer-Churn.csv'
+FILE='data/Telco-Customer-Churn.csv'
 def load_raw(file):
     return pd.read_csv(file)
 
@@ -17,8 +17,3 @@ def clean_data (df: pd.DataFrame) -> pd.DataFrame:
     df[TARGET] = (df[TARGET]=='Yes').astype(int)
 
     return df.drop_duplicates()
-
-if __name__ =="__main__":
-    df = clean_data(load_raw(file))
-    print(df.head)
-   
